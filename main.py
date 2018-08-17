@@ -56,7 +56,9 @@ def train(config):
             saver = tf.train.Saver()
             train_handle = sess.run(train_iterator.string_handle())
             dev_handle = sess.run(dev_iterator.string_handle())
+            print(config.save_dir)
             if os.path.exists(os.path.join(config.save_dir, "checkpoint")):
+                print("resume from last")
                 saver.restore(sess, tf.train.latest_checkpoint(config.save_dir))
             global_step = max(sess.run(model.global_step), 1)
 
