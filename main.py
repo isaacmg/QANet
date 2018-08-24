@@ -51,7 +51,7 @@ def train(config):
         best_em = 0.
 
         with tf.Session(config=sess_config) as sess:
-            writer = tf.summary.FileWriter(config.log_dir)
+            writer = tf.summary.FileWriter(config.log_dir,  sess.graph)
             sess.run(tf.global_variables_initializer())
             saver = tf.train.Saver()
             train_handle = sess.run(train_iterator.string_handle())
