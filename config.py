@@ -138,6 +138,10 @@ def main(_):
     else:
         print("Unknown mode")
         exit(0)
+        
+ def find_config():
+    config = flags.FLAGS
+    return config
 
 
 if __name__ == "__main__":
