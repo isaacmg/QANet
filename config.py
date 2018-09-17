@@ -118,7 +118,6 @@ fasttext_file = os.path.join(home, "data", "fasttext", "wiki-news-300d-1M.vec")
 flags.DEFINE_string("fasttext_file", fasttext_file, "Fasttext word embedding source file")
 flags.DEFINE_boolean("fasttext", False, "Whether to use fasttext")
 
-
 def main(_):
     config = flags.FLAGS
     if config.mode == "train":
@@ -138,7 +137,11 @@ def main(_):
     else:
         print("Unknown mode")
         exit(0)
-
+        
+def get_config():
+    config = flags.FLAGS
+    return config
+    
 
 if __name__ == "__main__":
     tf.app.run()
